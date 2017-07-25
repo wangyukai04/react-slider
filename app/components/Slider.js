@@ -55,7 +55,7 @@ export default class Slider extends Component{
                     speed={this.props.speed}
                     turn={this.turn}
                 />:null}
-                <SliderDots turn={this.turn} index={this.state.index} images={this.props.images}/>
+                {this.props.dots?<SliderDots turn={this.turn} index={this.state.index} images={this.props.images}/>:null}
             </div>
         )
     }
