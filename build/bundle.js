@@ -22895,10 +22895,22 @@ var Slider = function (_Component) {
         _this.turn = function (step) {
             // 表示移动index step步长
             var index = _this.state.index + step;
-            if (index >= _this.props.images.length) {
-                index = 0;
+            if (index > _this.props.images.length) {
+                _this.sliders.style.transitionDuration = "0s";
+                _this.sliders.style.left = 0;
+                setTimeout(function () {
+                    _this.sliders.style.transitionDuration = "1s";
+                    _this.setState({ index: 1 });
+                }, 20);
+                //this.setIndex();
+                return;
             }
             _this.setState({ index: index });
+        };
+
+        _this.setIndex = function () {
+            _this.sliders.transitionDuration = "1s";
+            _this.setState({ index: 1 });
         };
 
         _this.state = { index: 0 };
@@ -22908,6 +22920,7 @@ var Slider = function (_Component) {
     _createClass(Slider, [{
         key: "componentDidMount",
         value: function componentDidMount() {
+            this.sliders = document.querySelector(".sliders");
             this.go();
         }
     }, {
@@ -23117,7 +23130,7 @@ var SliderItems = function (_React$Component) {
         key: "render",
         value: function render() {
             var style = {
-                width: this.props.images.length * 700 + "px",
+                width: (this.props.images.length + 1) * 700 + "px",
                 left: this.props.index * -700 + "px",
                 transitionDuration: "1s" // 渐变时间
             };
@@ -23128,7 +23141,10 @@ var SliderItems = function (_React$Component) {
                     return _react2.default.createElement(_SlideItem2.default, {
                         key: index,
                         image: image });
-                })
+                }),
+                _react2.default.createElement(_SlideItem2.default, {
+                    key: this.props.images.length,
+                    image: this.props.images[0] })
             );
         }
     }]);

@@ -7,19 +7,36 @@ export default class Slider extends Component{
         this.state = {index:0}
     }
     componentDidMount(){
-        this.go();
+        this.sliders = document.querySelector(".sliders");
+        if(this.props.autoPlay){
+            this.go();
+        }
     }
     go = ()=>{
         // 开始自动轮播
         this.timer = setInterval(()=>{
             this.turn(1);
-        },2000);
+        },this.props.delay * 1000);
     };
     turn = (step)=>{
         // 表示移动index step步长
         let index = this.state.index + step;
-        if (index >= this.props.images.length){
-            index = 0;
+        if (index > this.props.images.length){
+            this.sliders.style.transitionDuration = "0s";
+            this.sliders.style.left = 0;
+            setTimeout(()=>{
+                this.sliders.style.transitionDuration = this.props.speed + "s";
+                this.setState({index:1});
+            },20);
+            return;
+        }else if(index < 0){
+            this.sliders.style.transitionDuration = "0s";
+            this.sliders.style.left = this.props.images.length * -700 + "px";
+            setTimeout(()=>{
+                this.sliders.style.transitionDuration = this.props.speed + "s";
+                this.setState({index:this.props.images.length - 1});
+            },20);
+            return;
         }
         this.setState({index});
     };
@@ -27,7 +44,7 @@ export default class Slider extends Component{
         return (
             <div
                 onMouseOver={()=>{clearInterval(this.timer)}}
-                onMouseOut={this.go}
+                onMouseOut={this.props.autoPlay?this.go:null}
                 className="slider-wrapper">
                 <SliderItems
                     index={this.state.index}

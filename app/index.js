@@ -11,6 +11,13 @@ const IMAGES = [
 ];
 
 ReactDOM.render(
-    <Slider images={IMAGES}/>,
+    <Slider
+        images = {IMAGES}
+        autoPlay = {true}
+        delay = {1.5}
+        speed = {1}
+        arrow = {true} // 是否显示左右箭头导航
+        dots = {true} // 是否显示点状导航
+    />,
     document.querySelector("#root")
 );
