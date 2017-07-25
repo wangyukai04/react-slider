@@ -26,7 +26,7 @@ module.exports = {
             {
                 // 如果是图片等资源文件的话用url-loader来加载
                 // 图片 视频 音频 图标
-                test:/\.(gif|png|jpg)$/,
+                test:/\.(gif|png|jpe?g)$/,
                 // 限定图片大小的分界线 如果图片的体积小于给定值的话 此图片会变成base64内嵌到网页中 否则会经过重命名后保存到目标里去 在网页中会得到一个新的url路径
                 use:"url-loader?limit=8194"
             }
