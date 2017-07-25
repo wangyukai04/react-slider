@@ -1,0 +1,23 @@
+@dot:10px;
+@dotLeft:20px;
+.slider-dots{
+  position: absolute;
+  bottom:10px;
+  text-align: center;
+  width:100%;
+  margin-left:-@dotLeft/2;
+  .dot{
+    width:@dot;
+    height:@dot;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-left:@dotLeft;
+    &:hover{
+      cursor: pointer;
+    }
+    &.active{
+      background-color: #2983ef;
+    }
+  }
+}

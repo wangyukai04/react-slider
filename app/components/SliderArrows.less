@@ -1,0 +1,31 @@
+@arrowHeight:140px;
+.slider-arrows{
+  display: none;
+  position: absolute;
+  top:50%;
+  width: 100%;
+  height: @arrowHeight;
+  margin-top:-@arrowHeight/2;
+  .arrow{
+    width: 50px;
+    height: @arrowHeight;
+    font-weight:bold;
+    font-size:@arrowHeight/4;
+    text-align: center;
+    line-height:@arrowHeight;
+    color: #000;
+    background-color: #ccc;
+    opacity: .4;
+    cursor: pointer;
+  }
+  .arrow:hover{
+    color: #2983ef;
+    opacity:.8;
+  }
+  .arrow-left{
+    float: left;
+  }
+  .arrow-right{
+    float: right;
+  }
+}
