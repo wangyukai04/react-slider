@@ -5,7 +5,7 @@ import "./index.less"
 
 const IMAGES = [
     {src:require("./img/1.jpg")},
-    {src:require("./img/2.jpeg")},
+    {src:require("./img/2.gif")},
     {src:require("./img/3.jpg")},
     {src:require("./img/4.jpg")}
 ];
