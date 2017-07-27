@@ -5,18 +5,20 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"webpack",
-    "dev":"webpack-dev-server --open",
-    "build-router":"webpack --config webpack.config.router.js",
-    "dev-router":"webpack-dev-server --config webpack.config.router.js"
+    "build": "webpack",
+    "dev": "webpack-dev-server --open",
+    "build-router": "webpack --config webpack.config.router.js",
+    "dev-router": "webpack-dev-server --config webpack.config.router.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "jquery": "^3.2.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
