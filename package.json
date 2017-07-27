@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"webpack",
-    "dev":"webpack-dev-server"
+    "dev":"webpack-dev-server --open",
+    "build-router":"webpack --config webpack.config.router.js",
+    "dev-router":"webpack-dev-server --config webpack.config.router.js"
   },
   "keywords": [],
   "author": "",
